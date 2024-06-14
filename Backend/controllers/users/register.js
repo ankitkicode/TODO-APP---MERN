@@ -4,7 +4,6 @@ const userModel = require('../../model/user');
 
 const userRegister = async (req, res, next) => {
     const { username, email, password, role } = req.body;
-
     // Log the received data for debugging
     console.log('Received data:', { username, email, password, role });
 

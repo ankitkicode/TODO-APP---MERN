@@ -1,6 +1,8 @@
 const express = require('express');
 const connection = require('./config/db'); // Ensure this is the correct path and function name
 const router = require('./routes/users');
+const routerTodo = require('./routes/todo');
+
 // Load environment variables from .env file
 require('dotenv').config();
 
@@ -11,6 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/users', router);
+app.use('/todos', routerTodo);
 
 app.get("/", (req, res) => {
     res.send("Get route chal gya hai bhi log");
