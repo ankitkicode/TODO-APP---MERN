@@ -33,7 +33,7 @@ const userRegister = async (req, res, next) => {
             username,
             email,
             password: hashPassword,
-            role
+            role,
         });
 
         await newUser.save();

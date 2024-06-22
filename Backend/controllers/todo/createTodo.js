@@ -1,13 +1,14 @@
 const todoModel = require("../../model/todos");
 
 const createTodo = async (req, res)=>{
-    const { title, dicription } = req.body;
+    const { title, dicription , userId } = req.body;
     // Log the received data for debugging
     console.log('Received data:', {  title, dicription });
     try {
         const newTodo = new todoModel({
          title,
-         dicription
+         dicription,
+         userId
         });
         console.log('ban gya ', newTodo)
         await newTodo.save();
