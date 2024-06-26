@@ -10,10 +10,10 @@ const getTodo = async (req, res) => {
         } else {
             isRole = { userId };
         }
-        console.log('Query criteria:', isRole);
+        // console.log('Query criteria:', isRole);
 
         const todos = await todoModel.find(isRole);
-        console.log('todos:', todos);
+        // console.log('todos:', todos);
 
         if (!todos || todos.length === 0) {
             return res.status(404).json({ message: "No todos found" });

@@ -10,7 +10,7 @@ const createTodo = async (req, res)=>{
          dicription,
          userId
         });
-        console.log('ban gya ', newTodo)
+        // console.log('ban gya ', newTodo)
         await newTodo.save();
         res.status(201).json({message:"todo created",newTodo})
     } catch (error) {

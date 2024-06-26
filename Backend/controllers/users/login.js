@@ -6,7 +6,7 @@ const userLogin = async (req, res, next) => {
   const { email, password } = req.body;
 
   // Log the received data for debugging
-  console.log('Received data:', { email, password });
+  // console.log('Received data:', { email, password });
 
   try {
     const user = await userModel.findOne({ email });

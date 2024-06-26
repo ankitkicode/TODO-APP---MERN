@@ -5,7 +5,7 @@ const userModel = require('../../model/user');
 const userRegister = async (req, res, next) => {
     const { username, email, password, role } = req.body;
     // Log the received data for debugging
-    console.log('Received data:', { username, email, password, role });
+    // console.log('Received data:', { username, email, password, role });
 
     try {
         if (!username || !email || !password) {
@@ -24,7 +24,7 @@ const userRegister = async (req, res, next) => {
         }
 
         // Log before hashing the password
-        console.log('Hashing password:', password);
+        // console.log('Hashing password:', password);
 
         const saltRounds = 10; // Number of salt rounds
         const hashPassword = await bcrypt.hash(password, saltRounds);

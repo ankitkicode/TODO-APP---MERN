@@ -2,6 +2,7 @@ const express = require('express');
 const connection = require('./config/db'); // Ensure this is the correct path and function name
 const router = require('./routes/users');
 const routerTodo = require('./routes/todo');
+const cors = require('cors');
 
 // Load environment variables from .env file
 require('dotenv').config();
@@ -10,6 +11,20 @@ const PORT = process.env.PORT || 8000;
 const HOST = process.env.HOST || 'localhost'; 
 const app = express();
 
+
+
+
+
+
+const corsOptions = {
+    origin: 'http://localhost:5173', // Replace with your frontend URL
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  
+app.use(cors(corsOptions));
+  
+// Handling OPTIONS preflight requests
+app.options('*', cors());
 app.use(express.json());
 
 app.use('/users', router);
